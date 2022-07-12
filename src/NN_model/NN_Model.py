@@ -123,7 +123,7 @@ class NN_Model():
     def __initialize_params(self, n_x):
         params = {}
         layers = self.hidden_layer_dims
-        params["W1"] = np.random.randn(layers[0], n_x) / np.sqrt(n_x)  # * 0.01
+        params["W1"] = np.random.randn(layers[0], n_x) / np.sqrt(n_x)
         params["b1"] = np.zeros((layers[0], 1))
         L = len(layers)
         for i in range(1, L):
