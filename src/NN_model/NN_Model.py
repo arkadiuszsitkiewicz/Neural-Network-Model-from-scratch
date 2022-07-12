@@ -121,7 +121,6 @@ class NN_Model():
         self.__params = None
 
     def __initialize_params(self, n_x):
-        np.random.seed(1)
         params = {}
         layers = self.hidden_layer_dims
         params["W1"] = np.random.randn(layers[0], n_x) / np.sqrt(n_x)  # * 0.01
