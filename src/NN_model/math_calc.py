@@ -2,7 +2,7 @@ import numpy as np
 
 
 def sigmoid(Z):
-    A = 1 / (1 + np.exp(-Z))
+    A = 1 / (1 + np.exp(-Z, out=np.full_like(Z, np.inf), where=(-Z <= 709.78)))
     cache = Z
     return A, cache
 
@@ -23,7 +23,7 @@ def tanh(Z):
 
 def sigmoid_backward(dA, cache):
     Z = cache
-    s = 1 / (1 + np.exp(-Z))
+    s = 1 / (1 + np.exp(-Z, out=np.full_like(Z, np.inf), where=(-Z <= 709.78)))
     dZ = dA * s * (1 -s)
     assert (dZ.shape == Z.shape)
     return dZ
